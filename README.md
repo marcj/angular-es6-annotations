@@ -17,7 +17,7 @@ registerControllerDecorator(myApp);
 ```
 
 ```javascript
-// myapp/controller/MainController
+// myapp/controller/MainController.js
 import {Inject} from './annotations';
 
 @Inject('$scope, $parse')
@@ -45,7 +45,7 @@ registerModuleDirective(myApp, MyDirective);
 ```
 
 ```javascript
-// myapp/directives/MyDirective
+// myapp/directives/MyDirective.js
 import {Inject, InjectAsProperty, Directive} from './annotations';
 
 @Inject('$compile, $http')
