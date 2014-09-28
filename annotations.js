@@ -11,20 +11,6 @@ export class Filter {
     }
 }
 
-export class Field {
-    constructor(name, options){
-        this.name = name;
-        this.options = options;
-    }
-}
-
-export class Label {
-    constructor(name, options){
-        this.name = name;
-        this.options = options;
-    }
-}
-
 export class Inject {
     constructor(...deps){
         this.deps = [];
