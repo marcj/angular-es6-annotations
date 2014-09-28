@@ -1,4 +1,4 @@
-# Angular EcmaScript 6+ (Traceur) Annotations
+# Angular v1 EcmaScript 6+ (Traceur) Annotations
 
 
 This little collection of annotations and registry functions allows you to register
