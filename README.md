@@ -13,6 +13,7 @@ Using the DI of Angular with ecmascript 6 classes is usually a PITA. You have se
 2. Use `static get $inject() { return ['$compile', '$http'] }`. This is ugly and nasty to write and doesn't work with sub classes.
 3. Define its dependencies in the module.directive(), module.controller() method call with the array syntax. With this you have two places to change when you change dependencies and it doesn't work well with sub classes as you have to define your parent dependencies there as well.
 
+This annotation collection fixes this and provide you several annotations to register your dependencies, directives and filters.
 
 ## Example
 
