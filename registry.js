@@ -1,4 +1,4 @@
-import {Field, Label, Filter, Parser, Directive, Inject, InjectAsProperty} from './annotations';
+import {Filter, Parser, Directive, Inject, InjectAsProperty} from './annotations';
 
 /**
  * Prepares a class constructor for angular depency injection.
@@ -152,18 +152,19 @@ export function registerModuleDirective(angularModule, controller) {
 export function registerControllerDecorator(angularModule) {
     angularModule.config(function ($provide) {
         $provide.decorator("$controller", ['$delegate', ($delegate) => {
-            return function (constructor, locals) {
-                if (angular.isString(constructor)) {
+            return function (...args) {
+                if (angular.isString(args[0])) {
                     try {
-                        var moduleClass = System.get(constructor);
+                        var moduleClass = System.get(args[0]);
                         if (moduleClass) {
-                            var preparedConstructor = getPreparedConstructor(System.get(constructor).default);
-                            constructor = preparedConstructor || System.get(constructor).default;
+                            var preparedConstructor = getPreparedConstructor(moduleClass.default);
+                            args[0] = preparedConstructor || moduleClass.default;
                         }
                     } catch (e) {
+                        throw e;
                     }
                 }
-                return $delegate(constructor, locals);
+                return $delegate(...args);
             };
         }]);
     });
