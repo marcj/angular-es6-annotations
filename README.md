@@ -5,6 +5,8 @@ This little collection of annotations and registry functions allows you to regis
 directives, controllers and filter with annotations at your angular module.
 
 
+You can find the Typescript version of this library here: https://github.com/marcj/angular-typescript-decorators
+
 ## Benefits
 
 Using the DI of Angular with ecmascript 6 classes is usually a PITA. You have several ways to inject services:
